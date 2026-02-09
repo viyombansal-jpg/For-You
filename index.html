@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>One Small Question 👀</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #020617, #0f172a);
+      font-family: "Courier New", monospace;
+      color: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .card {
+      background: #020617;
+      padding: 35px 40px;
+      border-radius: 14px;
+      width: 380px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(236, 72, 153, 0.25);
+      border: 1px solid rgba(236, 72, 153, 0.3);
+    }
+
+    h2 {
+      margin-bottom: 12px;
+      color: #f9a8d4;
+    }
+
+    p {
+      color: #cbd5f5;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    button {
+      padding: 11px 26px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin: 10px;
+      font-family: inherit;
+    }
+
+    #yes {
+      background: #ec4899;
+      color: #020617;
+      font-weight: bold;
+    }
+
+    #no {
+      background: #334155;
+      color: #e5e7eb;
+      position: absolute;
+    }
+
+    .tiny {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" id="card">
+    <h2>Quick question 💭</h2>
+    <p>
+      Are you down to meet me?  
+      <br />
+      <span class="tiny">(Can’t wait, already smiling thinking about it)</span>
+    </p>
+
+    <button id="yes">Yes 💕</button>
+    <button id="no">No 🙃</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const card = document.getElementById("card");
+
+    const moveNo = () => {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    };
+
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("click", moveNo);
+
+    document.getElementById("yes").addEventListener("click", () => {
+      card.innerHTML = `
+        <h2>Guess we’re meeting then 😌</h2>
+        <p>
+          I was low-key hoping you’d say that.  
+          <br /><br />
+          Can’t wait to see you 💗
+        </p>
+        <div class="tiny">console.log("Best decision ever.");</div>
+      `;
+    });
+
+    console.log("Waiting for her to click Yes… 💭");
+  </script>
+
+</body>
+</html>
